@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://api.fontshare.com/v2/css?f[]=outfit@100,300,400,500,600,700&display=swap" rel="stylesheet">
+  <title>Phumelela Student Residence</title>
+
+  <link rel="stylesheet" href="styles/modern-normalize.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/utils.css" />
+
+  <link rel="stylesheet" href="styles/components/header.css" />
+  <link rel="stylesheet" href="styles/components/hero.css" />
+  <link rel="stylesheet" href="styles/components/about.css" />
+  <link rel="stylesheet" href="styles/components/amenities.css" />
+  <link rel="stylesheet" href="styles/components/features.css" />
+  <link rel="stylesheet" href="styles/components/footer.css" />
+</head>
+<body>
+  <header class="nav">
+      <div class="nav-inner">
+
+        <!-- Brand -->
+        <a href="index.html" class="brand">
+            <img src="assets/images/phumelela-logo.png" alt="" class="logo-img">
+        </a>
+
+        <!-- Hamburger -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+        </label>
+
+        <!-- Menu -->
+        <ul class="menu">
+            <li><a class="menu__links active" href="index.html">Home</a></li>
+            <li><a class="menu__links" href="about.html">About</a></li>
+            <li><a class="menu__links" href="rooms.html">Rooms</a></li>
+            <li><a class="menu__links" href="apply.html">Apply</a></li>
+            <li><a class="menu__links" href="reserve.html">Reserve</a></li>
+
+            <a href="contact.html" class="nav-btn sec-btn">Contact Us</a>
+        </ul>
+      </div>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Phumelela Student Residence</h1>
+        <p>Phumelela Student Housing offers convenient, NSFAS-accredited accommodation in Pretoria Central, close to campus and essential amenities. Apply early to secure a room.
+        </p>
+        <div class="hero-btns">
+            <a href="apply.html" class="btn primary">Apply now</a>
+            <a href="reserve.html" class="sec-btn secondary">Reserve Space Now</a>
+        </div>
+      </div>
+    </section>
+    <section class="about section" id="about">
+      <div class="container about-inner">
+        <div class="about-label">
+          <span class="tag-square"></span>
+          <h2>About Us</h2>
+        </div>
+
+        <div class="about-body">
+          <p>
+            Phumelela Student Housing sits in the heart of Pretoria Central,
+            close to campus and everything student life needs. We're not
+            just a place to sleep between classes — we're a community built
+            around the same three words on our sign outside: succeed,
+            achieve, prosper.
+          </p>
+
+          <a href="about.html" class="btn sec-btn about-btn">Read More</a>
+        </div>
+      </div>
+    </section>
+    <section class="amenities section" id="amenities">
+      <div class="container">
+        <div class="about-label">
+          <span class="tag-square"></span>
+          <h2>Amenities Preview</h2>
+        </div>
+
+        <div class="amenities-grid">
+          <figure class="amenity-item">
+            <img src="assets/images/recep.png" alt="Reception area" />
+            <figcaption>Reception</figcaption>
+          </figure>
+
+          <figure class="amenity-item">
+            <img src="assets/images/entrance.png" alt="Building entrance" />
+            <figcaption>Entrance</figcaption>
+          </figure>
+
+          <figure class="amenity-item">
+            <img src="assets/images/lounge.png" alt="Lounge area" />
+            <figcaption>Lounge</figcaption>
+          </figure>
+
+          <figure class="amenity-item">
+            <img src="assets/images/room.png" alt="Student room" />
+            <figcaption>Room</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="about-label">
+          <span class="tag-square"></span>
+          <h2>The Key Features</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+              <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+              <line x1="12" y1="20" x2="12.01" y2="20" />
+            </svg>
+            <p>Free Wi-Fi</p>
+          </div>
+
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8l6-3 6 3 6-3v11l-6 3-6-3-6 3V8z" />
+              <circle cx="17" cy="10" r="1.5" />
+            </svg>
+            <p>CCTV</p>
+          </div>
+
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="13" rx="2" />
+              <path d="M7 3l5 4 5-4" />
+            </svg>
+            <p>TV Room</p>
+          </div>
+
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.5 6.5l11 11" />
+              <path d="M21 21l-3-3" />
+              <path d="M3 3l3 3" />
+              <path d="M18 6l-2 2" />
+              <path d="M6 18l-2 2" />
+              <path d="M4.5 4.5l2-2" />
+              <path d="M19.5 19.5l-2 2" />
+            </svg>
+            <p>Gym</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer section">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="assets/images/phumelela-logo.png" alt="Phumelela Student Housing" />
+          </a>
+          <p>NSFAS-accredited student housing in Pretoria Central.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="reserve.html">Reserve</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-contact">
+          <p>266 Visagie Street, Pretoria Central,<br />Pretoria, 0002, South Africa</p>
+          <p><a href="mailto:Manager@phumelelaresidence.co.za">Manager@phumelelaresidence.co.za</a></p>
+          <p><a href="tel:+27761939366">+27 76 193 9366</a></p>
+        </div>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l.5-4H13V6.5c0-1.16.32-1.95 1.99-1.95H17V1.14C16.67 1.1 15.55 1 14.25 1 11.53 1 9.67 2.66 9.67 5.7V9H6.67v4H9.67v9h3.33z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" /></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7.1l4.9 6.3L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Phumelela Student Housing. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <span>·</span>
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script></script>
+</body>
+</html>

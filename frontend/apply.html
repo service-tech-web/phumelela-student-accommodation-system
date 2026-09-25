@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://api.fontshare.com/v2/css?f[]=outfit@100,300,400,500,600,700&display=swap" rel="stylesheet">
+  <title>Apply | Phumelela Student Residence</title>
+
+  <link rel="stylesheet" href="styles/modern-normalize.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/utils.css" />
+
+  <link rel="stylesheet" href="styles/components/header.css" />
+  <link rel="stylesheet" href="styles/components/footer.css" />
+
+  <link rel="stylesheet" href="styles/components/apply-page.css" />
+  
+</head>
+<body>
+  <header class="nav">
+      <div class="nav-inner">
+
+        <!-- Brand -->
+        <a href="index.html" class="brand">
+            <img src="assets/images/phumelela-logo.png" alt="" class="logo-img">
+        </a>
+
+        <!-- Hamburger -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+        </label>
+
+        <!-- Menu -->
+        <ul class="menu">
+            <li><a class="menu__links" href="index.html">Home</a></li>
+            <li><a class="menu__links" href="about.html">About</a></li>
+            <li><a class="menu__links" href="rooms.html">Rooms</a></li>
+            <li><a class="menu__links active" href="apply.html">Apply</a></li>
+            <li><a class="menu__links" href="reserve.html">Reserve</a></li>
+
+            <a href="contact.html" class="nav-btn sec-btn">Contact Us</a>
+        </ul>
+      </div>
+    </header>
+
+    <section class="apply-section">
+      <div class="apply-rings apply-rings--left">
+        <svg viewBox="0 0 300 300" fill="none">
+          <circle cx="150" cy="150" r="140" stroke="var(--primary)" stroke-width="8" />
+          <circle cx="150" cy="150" r="110" stroke="var(--primary)" stroke-width="8" />
+          <circle cx="150" cy="150" r="80" stroke="var(--primary)" stroke-width="8" />
+        </svg>
+      </div>
+      <div class="apply-rings apply-rings--right">
+        <svg viewBox="0 0 300 300" fill="none">
+          <circle cx="150" cy="150" r="140" stroke="var(--primary)" stroke-width="8" />
+          <circle cx="150" cy="150" r="110" stroke="var(--primary)" stroke-width="8" />
+          <circle cx="150" cy="150" r="80" stroke="var(--primary)" stroke-width="8" />
+        </svg>
+      </div>
+
+      <h1 class="apply-heading">Apply By Filling The Form Below</h1>
+
+      <form class="apply-card" action="#" method="POST" novalidate>
+        <div class="form-group">
+          <label for="student-number">Enter your student number</label>
+          <input type="text" id="student-number" name="student-number" placeholder="Student number" aria-describedby="student-number-error" required />
+          <span class="error-message" id="student-number-error" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg><span class="error-text"></span>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Enter your email</label>
+          <input type="email" id="email" name="email" placeholder="Email" aria-describedby="email-error" required />
+          <span class="error-message" id="email-error" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg><span class="error-text"></span>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Enter phone number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone number" aria-describedby="phone-error" required />
+          <span class="error-message" id="phone-error" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg><span class="error-text"></span>
+          </span>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+            <legend>Gender</legend>
+            <div class="radio-option">
+              <input type="radio" id="gender-male" name="gender" value="male" />
+              <label for="gender-male">Male</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="gender-female" name="gender" value="female" />
+              <label for="gender-female">Female</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="gender-other" name="gender" value="other" />
+              <label for="gender-other">Other</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <label for="additional-info">Additional information</label>
+          <textarea id="additional-info" name="additional-info" placeholder="additional info (optional)"></textarea>
+        </div>
+
+        <button type="submit" class="apply-submit">
+          SUBMIT APPLICATION
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </form>
+    </section>
+
+   
+    <footer class="site-footer section">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="assets/images/phumelela-logo.png" alt="Phumelela Student Housing" />
+          </a>
+          <p>NSFAS-accredited student housing in Pretoria Central.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#reserve">Reserve</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-contact">
+          <p>266 Visagie Street, Pretoria Central,<br />Pretoria, 0002, South Africa</p>
+          <p><a href="mailto:Manager@phumelelaresidence.co.za">Manager@phumelelaresidence.co.za</a></p>
+          <p><a href="tel:+27761939366">+27 76 193 9366</a></p>
+        </div>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l.5-4H13V6.5c0-1.16.32-1.95 1.99-1.95H17V1.14C16.67 1.1 15.55 1 14.25 1 11.53 1 9.67 2.66 9.67 5.7V9H6.67v4H9.67v9h3.33z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" /></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7.1l4.9 6.3L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Phumelela Student Housing. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <span>·</span>
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="scripts/apply-form.js"></script>
+</body>
+</html>

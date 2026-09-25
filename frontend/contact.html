@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://api.fontshare.com/v2/css?f[]=outfit@100,300,400,500,600,700&display=swap" rel="stylesheet">
+  <title>Contact Us</title>
+
+  <link rel="stylesheet" href="styles/modern-normalize.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/utils.css" />
+
+  <link rel="stylesheet" href="styles/components/header.css" />
+  <link rel="stylesheet" href="styles/components/footer.css" />
+
+  
+  <link rel="stylesheet" href="styles/components/contact.css" />
+</head>
+<body>
+  <header class="nav">
+      <div class="nav-inner">
+
+        <!-- Brand -->
+        <a href="index.html" class="brand">
+            <img src="assets/images/phumelela-logo.png" alt="" class="logo-img">
+        </a>
+
+        <!-- Hamburger -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+        </label>
+
+        <!-- Menu -->
+        <ul class="menu">
+            <li><a class="menu__links" href="index.html">Home</a></li>
+            <li><a class="menu__links" href="about.html">About</a></li>
+            <li><a class="menu__links" href="rooms.html">Rooms</a></li>
+            <li><a class="menu__links" href="apply.html">Apply</a></li>
+            <li><a class="menu__links" href="reserve.html">Reserve</a></li>
+
+            <a href="contact.html" class="nav-btn sec-btn">Contact Us</a>
+        </ul>
+      </div>
+    </header>
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-rings">
+        <svg viewBox="0 0 400 400" fill="none">
+          <circle cx="200" cy="200" r="180" stroke="var(--primary)" stroke-width="10" />
+          <circle cx="200" cy="200" r="145" stroke="var(--primary)" stroke-width="10" />
+          <circle cx="200" cy="200" r="110" stroke="var(--primary)" stroke-width="10" />
+        </svg>
+      </div>
+      <h1 class="page-hero-title">Contact Us</h1>
+    </section>
+
+    <section class="touch">
+      <div class="container touch-inner">
+        <div class="touch-left">
+          <h2 class="touch-heading">Get in Touch</h2>
+          <p class="touch-text">
+            We are here to answer your questions and explore new
+            opportunities for collaboration.
+          </p>
+
+          <svg class="touch-icon" viewBox="0 0 64 64" fill="none">
+            <path d="M6 20a8 8 0 0 1 8-8h14a8 8 0 0 1 8 8v6a8 8 0 0 1-8 8H18l-8 6v-6a8 8 0 0 1-4-8z" fill="#4C8DFF"/>
+            <path d="M24 34a10 10 0 0 1 10-10h14a10 10 0 0 1 10 10v6a10 10 0 0 1-10 10H34l-10 7v-7a10 10 0 0 1 0-16z" fill="var(--primary)"/>
+            <path d="M36 20a9 9 0 0 1 9-9h6a9 9 0 0 1 9 9v3a9 9 0 0 1-9 9h-3l-6 4v-4a9 9 0 0 1-6-12z" fill="#3DDC5B"/>
+            <circle cx="40" cy="20" r="1.6" fill="#fff"/>
+            <circle cx="45" cy="20" r="1.6" fill="#fff"/>
+            <circle cx="50" cy="20" r="1.6" fill="#fff"/>
+            <line x1="30" y1="38" x2="42" y2="38" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            <line x1="30" y1="43" x2="38" y2="43" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="touch-right">
+          <img src="assets/images/phumelela-logo.png" alt="Phumelela Student Housing" class="touch-logo" />
+
+          <form class="contact-card" action="#" method="POST" novalidate>
+            <div class="form-field">
+              <input type="text" id="contact-name" name="name" placeholder="Name" aria-describedby="name-error" required />
+              <span class="error-message" id="name-error" role="alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                <span class="error-text"></span>
+              </span>
+            </div>
+
+            <div class="form-field">
+              <input type="email" id="contact-email" name="email" placeholder="Email" aria-describedby="contact-email-error" required />
+              <span class="error-message" id="contact-email-error" role="alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                <span class="error-text"></span>
+              </span>
+            </div>
+
+            <div class="form-field">
+              <input type="text" id="contact-subject" name="subject" placeholder="Subject" aria-describedby="subject-error" required />
+              <span class="error-message" id="subject-error" role="alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                <span class="error-text"></span>
+              </span>
+            </div>
+
+            <div class="form-field">
+              <textarea id="contact-message" name="message" placeholder="Message" aria-describedby="message-error" required></textarea>
+              <span class="error-message" id="message-error" role="alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                <span class="error-text"></span>
+              </span>
+            </div>
+
+            <button type="submit" class="contact-submit">
+              SEND
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer section">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="assets/images/phumelela-logo.png" alt="Phumelela Student Housing" />
+          </a>
+          <p>NSFAS-accredited student housing in Pretoria Central.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#reserve">Reserve</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-contact">
+          <p>266 Visagie Street, Pretoria Central,<br />Pretoria, 0002, South Africa</p>
+          <p><a href="mailto:Manager@phumelelaresidence.co.za">Manager@phumelelaresidence.co.za</a></p>
+          <p><a href="tel:+27761939366">+27 76 193 9366</a></p>
+        </div>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l.5-4H13V6.5c0-1.16.32-1.95 1.99-1.95H17V1.14C16.67 1.1 15.55 1 14.25 1 11.53 1 9.67 2.66 9.67 5.7V9H6.67v4H9.67v9h3.33z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" /></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.5 22H1.4l8.1-9.3L1 2h7.1l4.9 6.3L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+          </a>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 Phumelela Student Housing. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <span>·</span>
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="scripts/contact-form.js"></script>
+</body>
+</html>

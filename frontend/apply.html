@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://api.fontshare.com/v2/css?f[]=outfit@100,300,400,500,600,700&display=swap" rel="stylesheet">
+  <title>Apply | Phumelela Student Residence</title>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <section class="apply-section">
+    <div class="apply-rings apply-rings--left">
+      <svg viewBox="0 0 300 300" fill="none">
+        <circle cx="150" cy="150" r="140" stroke="var(--primary)" stroke-width="8" />
+        <circle cx="150" cy="150" r="110" stroke="var(--primary)" stroke-width="8" />
+        <circle cx="150" cy="150" r="80" stroke="var(--primary)" stroke-width="8" />
+      </svg>
+    </div>
+    <div class="apply-rings apply-rings--right">
+      <svg viewBox="0 0 300 300" fill="none">
+        <circle cx="150" cy="150" r="140" stroke="var(--primary)" stroke-width="8" />
+        <circle cx="150" cy="150" r="110" stroke="var(--primary)" stroke-width="8" />
+        <circle cx="150" cy="150" r="80" stroke="var(--primary)" stroke-width="8" />
+      </svg>
+    </div>
+
+    <h1 class="apply-heading">Apply By Filling The Form Below</h1>
+
+    <form class="apply-card" action="#" method="POST" novalidate>
+      <div class="form-group">
+        <label for="student-number">Enter your student number</label>
+        <input type="text" id="student-number" name="student-number" placeholder="Student number" aria-describedby="student-number-error" inputmode="numeric" maxlength="9" pattern="\d{9}" required />
+        <span class="error-message" id="student-number-error" role="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg><span class="error-text"></span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Enter your email</label>
+        <input type="email" id="email" name="email" placeholder="Email" aria-describedby="email-error" required />
+        <span class="error-message" id="email-error" role="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg><span class="error-text"></span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Enter phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="0XX XXX XXXX" aria-describedby="phone-error" inputmode="numeric" maxlength="10" pattern="0\d{9}" required />
+        <span class="error-message" id="phone-error" role="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg><span class="error-text"></span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <fieldset>
+          <legend>Gender</legend>
+          <div class="radio-option">
+            <input type="radio" id="gender-male" name="gender" value="male" />
+            <label for="gender-male">Male</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="gender-female" name="gender" value="female" />
+            <label for="gender-female">Female</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="gender-other" name="gender" value="other" />
+            <label for="gender-other">Other</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-group">
+        <label for="additional-info">Additional information</label>
+        <textarea id="additional-info" name="additional-info" placeholder="additional info (optional)"></textarea>
+      </div>
+
+      <button type="submit" class="apply-submit">
+        SUBMIT APPLICATION
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </button>
+    </form>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="./src/apply.js"></script>
+  <script type="module" src="./src/scripts/apply-form.js"></script>
+</body>
+</html>

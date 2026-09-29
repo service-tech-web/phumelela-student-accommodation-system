@@ -1,0 +1,135 @@
+/* x-tra small*/
+/* @media (min-width: 475px) {
+  
+}  */
+
+/* small*/
+/* @media (min-width: 640px) {
+  
+}  */
+
+/* medium*/
+/* @media (min-width: 768px) {
+  
+}  */
+
+/* large */
+/* @media (min-width: 1024px) {
+  
+}  */
+
+/* x-tra large*/
+/* @media (min-width: 1280px) {
+  
+}  */
+
+/* 2-x-tra large */
+/* @media (min-width: 1280px) {
+  
+} */
+
+
+/* primary btn */
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.05;
+  background-color: var(--primary);
+  border: none;
+  color: var(--background);
+  padding: 0.7em 1em;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(234, 88, 12, 0.5),
+    0 6px 6px rgba(234, 88, 12, 0.5), 0 0 100px -10px rgb(234, 88, 12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(234, 88, 12, 0.25),
+    0 10px 10px rgba(234, 88, 12, 0.22), 0 0 120px -10px rgb(234, 88, 12);
+}
+
+/* secondary btn */
+
+.sec-btn {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.05;
+  background-color: var(--background);
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+  padding: 0.5em 1em;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(147, 153, 143, 0.5),
+    0 6px 6px rgba(147, 153, 143, 0.5), 0 0 100px -10px rgb(147, 153, 143);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sec-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(147, 153, 143, 0.25),
+    0 10px 10px rgba(147, 153, 143, 0.22), 0 0 120px -10px rgb(147, 153, 143);
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.section {
+  margin-top: 5rem;
+}
+
+
+/* MOBILE FIRST */
+/* x-tra small*/
+@media (min-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+} 
+
+/* small*/
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+} 
+
+/* medium*/
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+} 
+
+/* large */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  .section {
+    margin-top: 10rem;
+  }
+} 
+
+/* x-tra large*/
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+} 
+
+/* 2-x-tra large */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}

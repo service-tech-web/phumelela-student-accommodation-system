@@ -1,0 +1,37 @@
+/* ============================================
+   ROOMS GALLERY
+   ============================================ */
+
+.rooms-gallery {
+  padding-block: 2rem 3rem;
+}
+
+.rooms-gallery .container {
+  columns: 1;
+  column-gap: 1.5rem;
+}
+
+.rooms-gallery figure {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.rooms-gallery img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .rooms-gallery {
+    padding-block: 6rem 4rem;
+  }
+
+  .rooms-gallery .container {
+    columns: 2;
+    column-gap: 2rem;
+  }
+
+  .rooms-gallery figure {
+    margin-bottom: 2rem;
+  }
+}

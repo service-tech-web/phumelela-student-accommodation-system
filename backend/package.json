@@ -1,0 +1,15 @@
+{
+  "name": "phumelela-backend",
+  "version": "1.0.0",
+  "description": "Backend for Phumelela Student Residence — handles Apply, Reserve, and Contact form submissions",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}

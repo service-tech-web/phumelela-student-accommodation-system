@@ -1,0 +1,105 @@
+{
+  "applications": [
+    {
+      "id": 1790673032283,
+      "studentNumber": "221558780",
+      "email": "exaplle@gmail.com",
+      "phone": "0826599335",
+      "gender": "male",
+      "additionalInfo": "",
+      "createdAt": "2026-09-29T09:10:32.283Z"
+    },
+    {
+      "id": 1790673907217,
+      "studentNumber": "221442750",
+      "email": "sevvbezos@gmail.com",
+      "phone": "0761939366",
+      "gender": "male",
+      "additionalInfo": "I need it for 2027",
+      "createdAt": "2026-09-29T09:25:07.217Z"
+    },
+    {
+      "id": 1790677381634,
+      "studentNumber": "22454868865",
+      "email": "navelosimango1@gmail.com",
+      "phone": "0782041112",
+      "gender": "female",
+      "additionalInfo": "",
+      "createdAt": "2026-09-29T10:23:01.634Z"
+    },
+    {
+      "id": 1790677648336,
+      "studentNumber": "2214455155",
+      "email": "Samewellcray13@gmail.com",
+      "phone": "0649713825",
+      "gender": "male",
+      "additionalInfo": "",
+      "createdAt": "2026-09-29T10:27:28.337Z"
+    },
+    {
+      "id": 1790679656697,
+      "studentNumber": "584724452",
+      "email": "biggun@gmail.com",
+      "phone": "+27 76 294 8231",
+      "gender": "male",
+      "additionalInfo": "",
+      "createdAt": "2026-09-29T11:00:56.697Z"
+    },
+    {
+      "id": 1790684332716,
+      "studentNumber": "030325541",
+      "email": "cray@gmail.com",
+      "phone": "+27 78 204 1112",
+      "gender": "female",
+      "additionalInfo": "",
+      "createdAt": "2026-09-29T12:18:52.716Z"
+    },
+    {
+      "id": 1790688815977,
+      "studentNumber": "584724452",
+      "email": "biggun@gmail.com",
+      "phone": "+27 76 294 8231",
+      "gender": "male",
+      "additionalInfo": "",
+      "createdAt": "2026-09-29T13:33:35.977Z"
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1790674147986,
+      "studentNumber": "221442750",
+      "email": "sevvbezos@gmail.com",
+      "phone": "0761939366",
+      "gender": "male",
+      "additionalInfo": "I am reserving for next year",
+      "createdAt": "2026-09-29T09:29:07.986Z"
+    },
+    {
+      "id": 1790690163349,
+      "studentNumber": "221445515",
+      "email": "Samewellcray13@gmail.com",
+      "phone": "+27 64 971 3825",
+      "gender": "male",
+      "additionalInfo": "",
+      "createdAt": "2026-09-29T13:56:03.349Z"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": 1790674196214,
+      "name": "Service",
+      "email": "sevvbezos@gmail.com",
+      "subject": "Accomodation",
+      "message": "I want to check prices and features",
+      "createdAt": "2026-09-29T09:29:56.214Z"
+    },
+    {
+      "id": 1790682716699,
+      "name": "Cray",
+      "email": "Samewellcray13@gmail.com",
+      "subject": "Inquiry of prices",
+      "message": "i wanna know the cost and terms of the rooms",
+      "createdAt": "2026-09-29T11:51:56.699Z"
+    }
+  ]
+}

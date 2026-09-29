@@ -1,0 +1,152 @@
+/* =========================
+   HERO - MOBILE FIRST
+========================= */
+
+.hero {
+    min-height: calc(100vh - 60px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 2rem 1rem;
+    overflow: hidden;
+    margin-top: 4rem;
+
+    background:
+        radial-gradient(
+            1200px 600px at 80% -10%,
+            rgba(255, 255, 255, .25),
+            transparent 60%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(11, 14, 19, .4),
+            rgba(11, 14, 19, .85)
+        ),
+        url("/hero-img.jpeg")
+        center / cover no-repeat;
+}
+
+.hero-inner {
+    width: 100%;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: var(--size-4xl);
+
+    margin-bottom: 1rem;
+
+    font-weight: 700;
+
+    color: var( --background);
+
+    line-height: 1.2;
+
+    text-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    font-size: var(--size-base);
+
+    margin-bottom: 1.5rem;
+
+    color: #d1d5db;
+}
+
+.hero-btns {
+    display: flex;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1rem;
+}
+
+/* x-tra small*/
+
+
+/* @media (min-width: 475px) {
+  
+}  */
+
+/* small*/
+/* @media (min-width: 640px) {
+  
+}  */
+
+/* medium*/
+@media (min-width: 768px) {
+   .hero {
+        padding: 2rem;
+    }
+
+    .hero h1 {
+        font-size: var(--size-5xl);
+    }
+
+    .hero p {
+        font-size: var(--size-lg);
+    }
+
+    .hero-btns {
+        flex-direction: row;
+    }
+
+    .hero .btn.primary,
+    .hero .btn.secondary {
+        width: auto;
+    }
+} 
+
+/* large */
+@media (min-width: 1024px) {
+  .hero {
+        min-height: calc(
+            100vh - clamp(60px, 5vw, 90px)
+        );
+
+        padding: 0 2rem;
+    }
+
+    .hero h1 {
+        font-size: var(--size-6xl);
+
+        margin-bottom:
+            clamp(12px, 2vw, 24px);
+    }
+
+    .hero p {
+        font-size: var(--size-xl);
+    }
+
+    .hero-btns {
+        gap: 1.2rem;
+    }
+
+    .hero .btn.primary,
+    .hero .btn.secondary {
+        padding:
+            clamp(8px, 1.5vw, 10px)
+            clamp(20px, 2vw, 26px);
+
+        width: auto;
+    }
+} 
+
+/* x-tra large*/
+/* @media (min-width: 1280px) {
+  
+}  */
+
+/* 2-x-tra large */
+/* @media (min-width: 1280px) {
+  
+} */

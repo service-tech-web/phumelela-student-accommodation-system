@@ -1,0 +1,53 @@
+.amenities-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.amenity-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius, 8px);
+}
+
+.amenity-item figcaption {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: var(--size-sm);
+}
+
+/* x-tra small*/
+/* @media (min-width: 475px) {
+  
+}  */
+
+/* small*/
+@media (min-width: 640px) {
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} 
+
+/* medium*/
+/* @media (min-width: 768px) {
+  
+}  */
+
+/* large */
+@media (min-width: 1024px) {
+  .amenities-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} 
+
+/* x-tra large*/
+/* @media (min-width: 1280px) {
+  
+}  */
+
+/* 2-x-tra large */
+/* @media (min-width: 1280px) {
+  
+} */

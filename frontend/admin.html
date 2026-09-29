@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://api.fontshare.com/v2/css?f[]=outfit@100,300,400,500,600,700&display=swap" rel="stylesheet">
+  <title>Admin | Phumelela Student Residence</title>
+</head>
+<body>
+
+  <div class="admin-page">
+    <header class="admin-header">
+      <h1>Phumelela Admin</h1>
+      <p>Applications, reservations, and contact messages</p>
+    </header>
+
+    <nav class="admin-tabs">
+      <button class="admin-tab active" data-tab="applications">Applications</button>
+      <button class="admin-tab" data-tab="reservations">Reservations</button>
+      <button class="admin-tab" data-tab="messages">Messages</button>
+    </nav>
+
+    <main class="admin-content">
+      <section class="admin-panel active" id="panel-applications">
+        <p class="admin-status" id="status-applications">Loading…</p>
+        <div class="table-wrap">
+          <table id="table-applications">
+            <thead>
+              <tr>
+                <th>Student #</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Additional Info</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-panel" id="panel-reservations">
+        <p class="admin-status" id="status-reservations">Loading…</p>
+        <div class="table-wrap">
+          <table id="table-reservations">
+            <thead>
+              <tr>
+                <th>Student #</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Additional Info</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-panel" id="panel-messages">
+        <p class="admin-status" id="status-messages">Loading…</p>
+        <div class="table-wrap">
+          <table id="table-messages">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./src/scripts/admin.js"></script>
+</body>
+</html>

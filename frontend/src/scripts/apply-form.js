@@ -46,6 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (input.checkValidity()) clearError(group);
   });
 
+  // Clear the gender error as soon as any option is picked
+  document.querySelectorAll('input[name="gender"]').forEach((radio) => {
+    radio.addEventListener('change', () => {
+      document.getElementById('gender-group').classList.remove('has-error');
+    });
+  });
+
+  function validateGender() {
+    const genderGroup = document.getElementById('gender-group');
+    const isChecked = document.querySelector('input[name="gender"]:checked');
+
+    if (!isChecked) {
+      genderGroup.classList.add('has-error');
+      genderGroup.querySelector('.error-text').textContent = 'Please select a gender.';
+      return false;
+    }
+
+    genderGroup.classList.remove('has-error');
+    return true;
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     clearFormStatus(form);
@@ -64,6 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
         clearError(group);
       }
     });
+
+    if (!validateGender()) {
+      hasErrors = true;
+    }
 
     if (hasErrors) {
       const firstError = form.querySelector('.has-error input, .has-error textarea');

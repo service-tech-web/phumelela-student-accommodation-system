@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { readDB, writeDB } from '../db.js';
+import db from '../db.js';
 
 const router = Router();
 
@@ -12,29 +12,32 @@ router.post('/contact', async (req, res) => {
     });
   }
 
-  const db = await readDB();
+  try {
+    const result = await db.query(
+      `INSERT INTO contact_messages (name, email, subject, message)
+       VALUES ($1, $2, $3, $4)
+       RETURNING *`,
+      [name, email, subject, message]
+    );
 
-  const newMessage = {
-    id: Date.now(),
-    name,
-    email,
-    subject,
-    message,
-    createdAt: new Date().toISOString(),
-  };
-
-  db.contactMessages.push(newMessage);
-  await writeDB(db);
-
-  res.status(201).json({
-    message: 'Message sent successfully.',
-    contactMessage: newMessage,
-  });
+    res.status(201).json({
+      message: 'Message sent successfully.',
+      contactMessage: result.rows[0],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Something went wrong sending your message.' });
+  }
 });
 
 router.get('/contact', async (req, res) => {
-  const db = await readDB();
-  res.json(db.contactMessages);
+  try {
+    const result = await db.query('SELECT * FROM contact_messages ORDER BY created_at DESC');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Could not fetch messages.' });
+  }
 });
 
 export default router;

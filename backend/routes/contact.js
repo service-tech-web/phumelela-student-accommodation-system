@@ -13,30 +13,16 @@ router.post('/contact', async (req, res) => {
   }
 
   try {
-    const result = await db.query(
+    await db.query(
       `INSERT INTO contact_messages (name, email, subject, message)
-       VALUES ($1, $2, $3, $4)
-       RETURNING *`,
+       VALUES ($1, $2, $3, $4)`,
       [name, email, subject, message]
     );
 
-    res.status(201).json({
-      message: 'Message sent successfully.',
-      contactMessage: result.rows[0],
-    });
+    res.status(201).json({ message: 'Message sent successfully.' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Something went wrong sending your message.' });
-  }
-});
-
-router.get('/contact', async (req, res) => {
-  try {
-    const result = await db.query('SELECT * FROM contact_messages ORDER BY created_at DESC');
-    res.json(result.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Could not fetch messages.' });
   }
 });
 

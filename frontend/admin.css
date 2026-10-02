@@ -89,3 +89,56 @@ tbody tr {
 tbody tr:hover {
   background-color: #fafafa;
 }
+
+/* ---------- Sign-in screen ---------- */
+
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.admin-login h1 {
+  font-size: var(--size-3xl);
+  font-weight: 700;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.admin-login label {
+  font-weight: 600;
+  font-size: var(--size-sm);
+}
+
+.admin-login input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.admin-login input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.admin-login .admin-status {
+  min-height: 1.25rem;
+  margin-bottom: 0;
+}
+
+/* ---------- Sign-out button ---------- */
+
+.admin-header .sec-btn {
+  margin-top: 1rem;
+}

@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(import.meta.dirname, 'index.html'),
         about: resolve(import.meta.dirname, 'about.html'),
         rooms: resolve(import.meta.dirname, 'rooms.html'),
+        contact: resolve(import.meta.dirname, 'contact.html'),
         apply: resolve(import.meta.dirname, 'apply.html'),
         reserve: resolve(import.meta.dirname, 'reserve.html'),
         confirmation: resolve(import.meta.dirname, 'confirmation.html'),

@@ -1,7 +1,8 @@
 // Shared helper for talking to the backend.
-// If your backend ever moves (different port, deployed server),
-// this is the only line you need to change.
-const API_URL = 'http://127.0.0.1:3000/api';
+// On Render, set the VITE_API_URL environment variable to your backend
+// address (no slash at the end). On your own computer it falls back to localhost.
+const BASE = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:3000').replace(/\/+$/, '');
+const API_URL = `${BASE}/api`;
 
 export async function postJSON(path, body) {
   let res;
@@ -14,8 +15,8 @@ export async function postJSON(path, body) {
     });
   } catch (err) {
     // fetch() only throws when the request never reached the server
-    // (backend not running, wrong port, no network).
-    throw new Error('Could not reach the server. Is the backend running?');
+    // (backend not running, wrong address, no network).
+    throw new Error('Could not reach the server. Please try again in a moment.');
   }
 
   const data = await res.json().catch(() => ({}));

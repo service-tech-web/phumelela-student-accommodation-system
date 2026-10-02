@@ -1,116 +1,132 @@
 import '../../admin.css';
 
-const API_URL = 'http://127.0.0.1:3000/api';
+// Admin page: asks for the secret key, then loads the three lists from the
+// protected backend routes. The key is only kept for this browser tab
+// (sessionStorage) and is never stored in the code.
 
-const tabs = document.querySelectorAll('.admin-tab');
-const panels = document.querySelectorAll('.admin-panel');
+const BASE = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:3000').replace(/\/+$/, '');
+const API_URL = `${BASE}/api`;
+const KEY_STORE = 'phumelela_admin_key';
 
-// Tab switching
-tabs.forEach((tab) => {
+// Which database columns go in each table, in the same order as the <th> cells.
+const COLUMNS = {
+  applications: ['student_number', 'email', 'phone', 'gender', 'additional_info', 'created_at'],
+  reservations: ['student_number', 'email', 'phone', 'gender', 'additional_info', 'created_at'],
+  messages: ['name', 'email', 'subject', 'message', 'created_at'],
+};
+
+const loginSection = document.getElementById('admin-login');
+const loginForm = document.getElementById('login-form');
+const loginStatus = document.getElementById('login-status');
+const keyInput = document.getElementById('admin-key');
+const adminPage = document.getElementById('admin-page');
+
+function showAdmin(show) {
+  loginSection.style.display = show ? 'none' : '';
+  adminPage.hidden = !show;
+  adminPage.style.display = show ? '' : 'none';
+}
+
+async function fetchList(name, key) {
+  const res = await fetch(`${API_URL}/admin/${name}`, {
+    headers: { 'x-admin-key': key },
+  });
+
+  if (res.status === 401) throw new Error('WRONG_KEY');
+  if (!res.ok) throw new Error('SERVER_ERROR');
+
+  return res.json();
+}
+
+function formatCell(column, value) {
+  if (value === null || value === undefined || value === '') return '—';
+  if (column === 'created_at') return new Date(value).toLocaleString('en-ZA');
+  return String(value);
+}
+
+function renderTable(name, rows) {
+  const tbody = document.querySelector(`#table-${name} tbody`);
+  const status = document.getElementById(`status-${name}`);
+  tbody.replaceChildren();
+
+  rows.forEach((row) => {
+    const tr = document.createElement('tr');
+
+    COLUMNS[name].forEach((column) => {
+      const td = document.createElement('td');
+      // textContent (not innerHTML) so nothing a visitor typed can run as code.
+      td.textContent = formatCell(column, row[column]);
+      td.title = td.textContent; // hover to read the full text
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  status.textContent = rows.length === 0 ? 'No entries yet.' : `${rows.length} total`;
+}
+
+async function loadAll(key) {
+  const [applications, reservations, messages] = await Promise.all([
+    fetchList('applications', key),
+    fetchList('reservations', key),
+    fetchList('messages', key),
+  ]);
+
+  renderTable('applications', applications);
+  renderTable('reservations', reservations);
+  renderTable('messages', messages);
+}
+
+function signOut() {
+  sessionStorage.removeItem(KEY_STORE);
+  window.location.reload();
+}
+
+// Tabs
+document.querySelectorAll('.admin-tab').forEach((tab) => {
   tab.addEventListener('click', () => {
-    tabs.forEach((t) => t.classList.remove('active'));
-    panels.forEach((p) => p.classList.remove('active'));
+    document.querySelectorAll('.admin-tab').forEach((t) => t.classList.remove('active'));
+    document.querySelectorAll('.admin-panel').forEach((p) => p.classList.remove('active'));
 
     tab.classList.add('active');
     document.getElementById(`panel-${tab.dataset.tab}`).classList.add('active');
   });
 });
 
-function formatDate(iso) {
-  if (!iso) return '—';
-  return new Date(iso).toLocaleString();
-}
+document.getElementById('sign-out').addEventListener('click', signOut);
 
-function cell(value) {
-  return value ? value : '—';
-}
+// Sign in
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const key = keyInput.value.trim();
+  if (!key) return;
 
-async function loadApplications() {
-  const status = document.getElementById('status-applications');
-  const tbody = document.querySelector('#table-applications tbody');
+  loginStatus.textContent = 'Checking…';
 
   try {
-    const res = await fetch(`${API_URL}/apply`);
-    const rows = await res.json();
-
-    if (rows.length === 0) {
-      status.textContent = 'No applications yet.';
-      return;
-    }
-
-    status.remove();
-    tbody.innerHTML = rows.map((r) => `
-      <tr>
-        <td>${cell(r.studentNumber)}</td>
-        <td>${cell(r.email)}</td>
-        <td>${cell(r.phone)}</td>
-        <td>${cell(r.gender)}</td>
-        <td>${cell(r.additionalInfo)}</td>
-        <td>${formatDate(r.createdAt)}</td>
-      </tr>
-    `).join('');
+    await loadAll(key);
+    sessionStorage.setItem(KEY_STORE, key);
+    keyInput.value = '';
+    loginStatus.textContent = '';
+    showAdmin(true);
   } catch (err) {
-    status.textContent = 'Could not load applications. Is the backend running?';
+    loginStatus.textContent =
+      err.message === 'WRONG_KEY'
+        ? 'Wrong admin key.'
+        : 'Could not reach the server. If it was idle, wait a minute and try again.';
   }
-}
+});
 
-async function loadReservations() {
-  const status = document.getElementById('status-reservations');
-  const tbody = document.querySelector('#table-reservations tbody');
+// If the key was already entered earlier in this tab, sign in automatically.
+(async function init() {
+  const savedKey = sessionStorage.getItem(KEY_STORE);
+  if (!savedKey) return;
 
   try {
-    const res = await fetch(`${API_URL}/reserve`);
-    const rows = await res.json();
-
-    if (rows.length === 0) {
-      status.textContent = 'No reservations yet.';
-      return;
-    }
-
-    status.remove();
-    tbody.innerHTML = rows.map((r) => `
-      <tr>
-        <td>${cell(r.studentNumber)}</td>
-        <td>${cell(r.email)}</td>
-        <td>${cell(r.phone)}</td>
-        <td>${cell(r.gender)}</td>
-        <td>${cell(r.additionalInfo)}</td>
-        <td>${formatDate(r.createdAt)}</td>
-      </tr>
-    `).join('');
-  } catch (err) {
-    status.textContent = 'Could not load reservations. Is the backend running?';
+    await loadAll(savedKey);
+    showAdmin(true);
+  } catch {
+    sessionStorage.removeItem(KEY_STORE);
   }
-}
-
-async function loadMessages() {
-  const status = document.getElementById('status-messages');
-  const tbody = document.querySelector('#table-messages tbody');
-
-  try {
-    const res = await fetch(`${API_URL}/contact`);
-    const rows = await res.json();
-
-    if (rows.length === 0) {
-      status.textContent = 'No messages yet.';
-      return;
-    }
-
-    status.remove();
-    tbody.innerHTML = rows.map((r) => `
-      <tr>
-        <td>${cell(r.name)}</td>
-        <td>${cell(r.email)}</td>
-        <td>${cell(r.subject)}</td>
-        <td>${cell(r.message)}</td>
-        <td>${formatDate(r.createdAt)}</td>
-      </tr>
-    `).join('');
-  } catch (err) {
-    status.textContent = 'Could not load messages. Is the backend running?';
-  }
-}
-
-loadApplications();
-loadReservations();
-loadMessages();
+})();

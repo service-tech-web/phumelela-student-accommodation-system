@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { readDB, writeDB } from '../db.js';
+import db from '../db.js';
 
 const router = Router();
 
@@ -12,31 +12,33 @@ router.post('/apply', async (req, res) => {
     });
   }
 
-  const db = await readDB();
+  try {
+    const result = await db.query(
+      `INSERT INTO applications (student_number, email, phone, gender, additional_info)
+       VALUES ($1, $2, $3, $4, $5)
+       RETURNING *`,
+      [studentNumber, email, phone, gender ?? null, additionalInfo ?? null]
+    );
 
-  const newApplication = {
-    id: Date.now(), // simple unique id — good enough for learning
-    studentNumber,
-    email,
-    phone,
-    gender: gender ?? null,
-    additionalInfo: additionalInfo ?? null,
-    createdAt: new Date().toISOString(),
-  };
-
-  db.applications.push(newApplication);
-  await writeDB(db);
-
-  res.status(201).json({
-    message: 'Application submitted successfully.',
-    application: newApplication,
-  });
+    res.status(201).json({
+      message: 'Application submitted successfully.',
+      application: result.rows[0],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Something went wrong saving your application.' });
+  }
 });
 
 // Handy for checking your work in the browser while learning
 router.get('/apply', async (req, res) => {
-  const db = await readDB();
-  res.json(db.applications);
+  try {
+    const result = await db.query('SELECT * FROM applications ORDER BY created_at DESC');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Could not fetch applications.' });
+  }
 });
 
 export default router;

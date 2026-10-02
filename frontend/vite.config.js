@@ -15,7 +15,6 @@ export default defineConfig({
           import.meta.dirname,
           'reservation-confirmation.html'
         ),
-        admin: resolve(__dirname, 'admin.html'),
       },
     },
   },

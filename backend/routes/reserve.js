@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { readDB, writeDB } from '../db.js';
+import db from '../db.js';
 
 const router = Router();
 
@@ -12,30 +12,32 @@ router.post('/reserve', async (req, res) => {
     });
   }
 
-  const db = await readDB();
+  try {
+    const result = await db.query(
+      `INSERT INTO reservations (student_number, email, phone, gender, additional_info)
+       VALUES ($1, $2, $3, $4, $5)
+       RETURNING *`,
+      [studentNumber, email, phone, gender ?? null, additionalInfo ?? null]
+    );
 
-  const newReservation = {
-    id: Date.now(),
-    studentNumber,
-    email,
-    phone,
-    gender: gender ?? null,
-    additionalInfo: additionalInfo ?? null,
-    createdAt: new Date().toISOString(),
-  };
-
-  db.reservations.push(newReservation);
-  await writeDB(db);
-
-  res.status(201).json({
-    message: 'Reservation confirmed successfully.',
-    reservation: newReservation,
-  });
+    res.status(201).json({
+      message: 'Reservation confirmed successfully.',
+      reservation: result.rows[0],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Something went wrong saving your reservation.' });
+  }
 });
 
 router.get('/reserve', async (req, res) => {
-  const db = await readDB();
-  res.json(db.reservations);
+  try {
+    const result = await db.query('SELECT * FROM reservations ORDER BY created_at DESC');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Could not fetch reservations.' });
+  }
 });
 
 export default router;

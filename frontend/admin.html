@@ -12,9 +12,9 @@
   <!-- Sign-in screen: shown until the correct admin key is entered -->
   <section class="admin-login" id="admin-login">
     <h1>Phumelela Admin</h1>
-    <form id="login-form">
+    <form id="login-form" autocomplete="off">
       <label for="admin-key">Admin key</label>
-      <input type="password" id="admin-key" autocomplete="current-password" required />
+      <input type="password" id="admin-key" name="admin-key-field" autocomplete="new-password" data-lpignore="true" data-1p-ignore required />
       <button type="submit" class="btn">Sign in</button>
       <p class="admin-status" id="login-status" role="alert"></p>
     </form>

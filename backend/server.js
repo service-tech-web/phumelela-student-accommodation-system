@@ -9,7 +9,10 @@ import contactRoutes from './routes/contact.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// Only your own frontend may send requests to this backend.
+// On Render, set FRONTEND_URL (no slash at the end).
+// On your computer it falls back to the Vite dev server.
+app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173' }));
 app.use(express.json());
 
 app.use('/api', applyRoutes);

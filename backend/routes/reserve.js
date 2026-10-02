@@ -13,30 +13,16 @@ router.post('/reserve', async (req, res) => {
   }
 
   try {
-    const result = await db.query(
+    await db.query(
       `INSERT INTO reservations (student_number, email, phone, gender, additional_info)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING *`,
+       VALUES ($1, $2, $3, $4, $5)`,
       [studentNumber, email, phone, gender ?? null, additionalInfo ?? null]
     );
 
-    res.status(201).json({
-      message: 'Reservation confirmed successfully.',
-      reservation: result.rows[0],
-    });
+    res.status(201).json({ message: 'Reservation confirmed successfully.' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Something went wrong saving your reservation.' });
-  }
-});
-
-router.get('/reserve', async (req, res) => {
-  try {
-    const result = await db.query('SELECT * FROM reservations ORDER BY created_at DESC');
-    res.json(result.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Could not fetch reservations.' });
   }
 });
 

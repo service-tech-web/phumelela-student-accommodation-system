@@ -115,6 +115,10 @@ loginForm.addEventListener('submit', async (e) => {
       err.message === 'WRONG_KEY'
         ? 'Wrong admin key.'
         : 'Could not reach the server. If it was idle, wait a minute and try again.';
+
+    // Empty the box and put the cursor back in it, ready for the next try.
+    keyInput.value = '';
+    keyInput.focus();
   }
 });
 
@@ -130,3 +134,13 @@ loginForm.addEventListener('submit', async (e) => {
     sessionStorage.removeItem(KEY_STORE);
   }
 })();
+
+// Keep the key box empty every time the page opens. Browsers sometimes
+// refill it by themselves (autofill or the back button), so clear it a few times.
+function clearKeyField() {
+  keyInput.value = '';
+}
+clearKeyField();
+setTimeout(clearKeyField, 100);
+setTimeout(clearKeyField, 500);
+window.addEventListener('pageshow', clearKeyField);

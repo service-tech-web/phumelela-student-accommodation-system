@@ -13,31 +13,16 @@ router.post('/apply', async (req, res) => {
   }
 
   try {
-    const result = await db.query(
+    await db.query(
       `INSERT INTO applications (student_number, email, phone, gender, additional_info)
-       VALUES ($1, $2, $3, $4, $5)
-       RETURNING *`,
+       VALUES ($1, $2, $3, $4, $5)`,
       [studentNumber, email, phone, gender ?? null, additionalInfo ?? null]
     );
 
-    res.status(201).json({
-      message: 'Application submitted successfully.',
-      application: result.rows[0],
-    });
+    res.status(201).json({ message: 'Application submitted successfully.' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Something went wrong saving your application.' });
-  }
-});
-
-// Handy for checking your work in the browser while learning
-router.get('/apply', async (req, res) => {
-  try {
-    const result = await db.query('SELECT * FROM applications ORDER BY created_at DESC');
-    res.json(result.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Could not fetch applications.' });
   }
 });
 

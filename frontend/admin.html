@@ -3,15 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
   <link href="https://api.fontshare.com/v2/css?f[]=outfit@100,300,400,500,600,700&display=swap" rel="stylesheet">
   <title>Admin | Phumelela Student Residence</title>
 </head>
 <body>
 
-  <div class="admin-page">
+  <!-- Sign-in screen: shown until the correct admin key is entered -->
+  <section class="admin-login" id="admin-login">
+    <h1>Phumelela Admin</h1>
+    <form id="login-form">
+      <label for="admin-key">Admin key</label>
+      <input type="password" id="admin-key" autocomplete="current-password" required />
+      <button type="submit" class="btn">Sign in</button>
+      <p class="admin-status" id="login-status" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- Admin area: hidden until sign-in works -->
+  <div class="admin-page" id="admin-page" hidden style="display: none;">
     <header class="admin-header">
       <h1>Phumelela Admin</h1>
       <p>Applications, reservations, and contact messages</p>
+      <button type="button" class="sec-btn" id="sign-out">Sign out</button>
     </header>
 
     <nav class="admin-tabs">

@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = form.querySelector('button[type="submit"]');
 
   const fields = [
+    { id: 'first-name', message: 'Please enter your name.' },
+    { id: 'surname', message: 'Please enter your surname.' },
     { id: 'student-number', message: 'Student number must be exactly 9 digits.' },
     { id: 'email', message: 'Please enter a valid email address.' },
     { id: 'phone', message: 'Phone number must be 10 digits, starting with 0 (e.g. 0717081353).' },
@@ -35,6 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
       input.value = input.value.replace(/\D/g, '');
       const group = input.closest('.form-group');
       if (input.checkValidity()) clearError(group);
+    });
+  });
+
+  ['first-name', 'surname'].forEach((id) => {
+    const input = document.getElementById(id);
+    if (!input) return;
+
+    input.addEventListener('input', () => {
+      const group = input.closest('.form-group');
+      if (input.value.trim() !== '') clearError(group);
     });
   });
 
@@ -75,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!input) return;
       const group = input.closest('.form-group');
 
-      if (!input.checkValidity()) {
+      if (!input.checkValidity() || input.value.trim() === '') {
         showError(group, message);
         hasErrors = true;
       } else {
@@ -99,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const localPhone = document.getElementById('phone').value.trim();
 
       await postJSON('/reserve', {
+        firstName: document.getElementById('first-name').value.trim(),
+        surname: document.getElementById('surname').value.trim(),
         studentNumber: document.getElementById('student-number').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: toInternationalFormat(localPhone),

@@ -4,23 +4,41 @@ import db from '../db.js';
 const router = Router();
 
 router.post('/apply', async (req, res) => {
-  const { studentNumber, email, phone, gender, additionalInfo } = req.body;
+  const { firstName, surname, studentNumber, email, phone, gender, additionalInfo } = req.body;
 
-  if (!studentNumber || !email || !phone) {
+  const cleanFirstName = firstName?.trim();
+  const cleanSurname = surname?.trim();
+  const cleanStudentNumber = studentNumber?.trim();
+
+  if (!cleanFirstName || !cleanSurname || !cleanStudentNumber || !email || !phone) {
     return res.status(400).json({
-      error: 'studentNumber, email, and phone are all required.',
+      error: 'firstName, surname, studentNumber, email, and phone are all required.',
+    });
+  }
+
+  if (!/^\d{9}$/.test(cleanStudentNumber)) {
+    return res.status(400).json({
+      field: 'student-number',
+      error: 'Student number must be 9 digits.',
     });
   }
 
   try {
     await db.query(
-      `INSERT INTO applications (student_number, email, phone, gender, additional_info)
-       VALUES ($1, $2, $3, $4, $5)`,
-      [studentNumber, email, phone, gender ?? null, additionalInfo ?? null]
+      `INSERT INTO applications (first_name, surname, student_number, email, phone, gender, additional_info)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+      [cleanFirstName, cleanSurname, cleanStudentNumber, email, phone, gender ?? null, additionalInfo ?? null]
     );
 
     res.status(201).json({ message: 'Application submitted successfully.' });
   } catch (err) {
+    // 23505 = Postgres says this student number already exists
+    if (err.code === '23505') {
+      return res.status(409).json({
+        field: 'student-number',
+        error: 'This student number has already applied.',
+      });
+    }
     console.error(err);
     res.status(500).json({ error: 'Something went wrong saving your application.' });
   }

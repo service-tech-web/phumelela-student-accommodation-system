@@ -1,3 +1,16 @@
+/* Brand colours. admin.js only loads this file, so they are defined here
+   as well; if the global styles are present they have the same values. */
+:root {
+  --primary: #EA580C;
+  --primary-dark: #C2410C;
+  --primary-tint: #FFF7ED;
+}
+
+.admin-page,
+.admin-login {
+  font-family: 'Outfit', sans-serif;
+}
+
 .admin-page {
   min-height: 100vh;
   padding: 2rem 1.5rem 4rem;
@@ -6,7 +19,7 @@
 }
 
 .admin-header h1 {
-  font-size: var(--size-3xl);
+  font-size: var(--size-3xl, 2.25rem);
   font-weight: 700;
 }
 
@@ -27,11 +40,15 @@
   border: none;
   background: none;
   font-weight: 600;
-  font-size: var(--size-sm);
+  font-size: var(--size-sm, 0.875rem);
   color: var(--text-secondary, #93998F);
   cursor: pointer;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
+}
+
+.admin-tab:hover {
+  color: var(--primary);
 }
 
 .admin-tab.active {
@@ -49,25 +66,31 @@
 }
 
 .admin-status {
-  font-size: var(--size-sm);
+  font-size: var(--size-sm, 0.875rem);
   color: var(--text-secondary, #93998F);
   margin-bottom: 1rem;
 }
 
 .table-wrap {
   overflow-x: auto;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--primary);
   border-radius: 8px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--size-sm);
+  font-size: var(--size-sm, 0.875rem);
 }
 
 thead {
-  background-color: #f7f7f5;
+  background-color: var(--primary-tint);
+}
+
+th {
+  color: #7C2D12;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary);
 }
 
 th, td {
@@ -87,7 +110,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #fafafa;
+  background-color: var(--primary-tint);
 }
 
 /* ---------- Sign-in screen ---------- */
@@ -103,7 +126,7 @@ tbody tr:hover {
 }
 
 .admin-login h1 {
-  font-size: var(--size-3xl);
+  font-size: var(--size-3xl, 2.25rem);
   font-weight: 700;
 }
 
@@ -113,17 +136,22 @@ tbody tr:hover {
   gap: 0.75rem;
   width: 100%;
   max-width: 360px;
+  padding: 1.5rem;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
 }
 
 .admin-login label {
   font-weight: 600;
-  font-size: var(--size-sm);
+  font-size: var(--size-sm, 0.875rem);
 }
 
 .admin-login input {
   padding: 0.75rem 1rem;
-  border: 1px solid #e5e5e5;
+  border: 1.5px solid #a19d9d;
   border-radius: 8px;
+  background-color: #fff;
+  color: #1c1917;
   font: inherit;
 }
 
@@ -141,4 +169,45 @@ tbody tr:hover {
 
 .admin-header .sec-btn {
   margin-top: 1rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.admin-login .btn {
+  padding: 0.9em 1em;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.admin-login .btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.admin-header .sec-btn {
+  padding: 0.6em 1.4em;
+  background-color: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: 40px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-header .sec-btn:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.admin-login .btn:focus-visible,
+.admin-header .sec-btn:focus-visible,
+.admin-tab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }

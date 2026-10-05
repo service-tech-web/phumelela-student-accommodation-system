@@ -10,8 +10,8 @@ const KEY_STORE = 'phumelela_admin_key';
 
 // Which database columns go in each table, in the same order as the <th> cells.
 const COLUMNS = {
-  applications: ['student_number', 'email', 'phone', 'gender', 'additional_info', 'created_at'],
-  reservations: ['student_number', 'email', 'phone', 'gender', 'additional_info', 'created_at'],
+  applications: ['first_name', 'surname', 'student_number', 'email', 'phone', 'gender', 'additional_info', 'created_at'],
+  reservations: ['first_name', 'surname', 'student_number', 'email', 'phone', 'gender', 'additional_info', 'created_at'],
   messages: ['name', 'email', 'subject', 'message', 'created_at'],
 };
 
